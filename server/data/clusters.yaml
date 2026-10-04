@@ -1,0 +1,16 @@
+- id: methylation
+  title: Possible functional B12 shortfall
+  matches_symptoms: [brain_fog]
+  retest_markers: [b12, homocysteine]
+- id: insulin_resistance
+  title: Early insulin resistance pattern
+  matches_symptoms: [post_meal_crash]
+  retest_markers: [glucose_fasting, insulin_fasting, hba1c, triglycerides, hdl]
+- id: inflammation
+  title: Low-grade inflammation
+  matches_symptoms: [high_crp_without_illness]
+  retest_markers: [hscrp, ferritin, transferrin_sat]
+- id: gut_absorption
+  title: Possible nutrient absorption issue
+  matches_symptoms: [bloating]
+  retest_markers: [ferritin, b12, vitamin_d, zinc, magnesium_rbc, hemoglobin]

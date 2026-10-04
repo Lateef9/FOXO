@@ -1,0 +1,5 @@
+# Verify each warning against a real source (see SOURCING.md).
+
+- {a: iron, b: zinc, warning: "Iron and zinc compete for absorption. Take at separate times."}
+- {a: iron, b: tea_coffee, warning: "Tea and coffee reduce iron absorption. Keep them apart from iron."}
+- {a: iron, b: calcium, warning: "Calcium reduces iron absorption. Take at separate times."}

@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+- Read @PROJECT.md before any task. It is the source of truth.
+- Never invent medical content: ranges, rules, interventions, evidence labels, citations. Those come only from server/data/*.
+- Never edit files in server/data/.
+- No doses, no brand names, no identifiers sent to the LLM.
+- Engine code is pure functions with Vitest tests. Do not weaken a test to make it pass.
+- Do not add libraries, auth, or features that are not in PROJECT.md.
+- Keep files under ~200 lines; split modules instead of growing one file.
+- If the spec is ambiguous or data is missing, stop and ask.

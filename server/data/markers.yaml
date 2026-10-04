@@ -1,0 +1,23 @@
+# Placeholder adult ranges (simplified, not sex-specific).
+# Confirm each against a cited reference in SOURCING.md before demoing.
+
+- {code: glucose_fasting, name: Fasting glucose, unit: mg/dL, system: metabolic, lab: [70, 99], optimal: [75, 90]}
+- {code: insulin_fasting, name: Fasting insulin, unit: uIU/mL, system: metabolic, lab: [2, 25], optimal: [2, 8]}
+- {code: hba1c, name: HbA1c, unit: "%", system: metabolic, lab: [4.0, 5.6], optimal: [4.8, 5.3]}
+- {code: triglycerides, name: Triglycerides, unit: mg/dL, system: metabolic, lab: [0, 149], optimal: [0, 100]}
+- {code: uric_acid, name: Uric acid, unit: mg/dL, system: metabolic, lab: [3.0, 7.0], optimal: [3.5, 5.5]}
+- {code: hdl, name: HDL cholesterol, unit: mg/dL, system: cardiovascular, lab: [40, 100], optimal: [50, 90]}
+- {code: ldl, name: LDL cholesterol, unit: mg/dL, system: cardiovascular, lab: [0, 129], optimal: [0, 100]}
+- {code: hscrp, name: hs-CRP, unit: mg/L, system: immunity, lab: [0, 3.0], optimal: [0, 1.0]}
+- {code: wbc, name: White blood cells, unit: 10^3/uL, system: immunity, lab: [4.0, 11.0], optimal: [4.5, 7.5]}
+- {code: homocysteine, name: Homocysteine, unit: umol/L, system: cognition, lab: [5, 15], optimal: [5, 9]}
+- {code: b12, name: Vitamin B12, unit: pg/mL, system: cognition, lab: [200, 900], optimal: [500, 900]}
+- {code: vitamin_d, name: Vitamin D (25-OH), unit: ng/mL, system: gut_nutrient, lab: [30, 100], optimal: [40, 60]}
+- {code: ferritin, name: Ferritin, unit: ng/mL, system: gut_nutrient, lab: [30, 300], optimal: [50, 150]}
+- {code: transferrin_sat, name: Transferrin saturation, unit: "%", system: gut_nutrient, lab: [20, 50], optimal: [25, 40]}
+- {code: hemoglobin, name: Haemoglobin, unit: g/dL, system: gut_nutrient, lab: [12.0, 17.5], optimal: [13.0, 16.0]}
+- {code: zinc, name: Zinc, unit: ug/dL, system: gut_nutrient, lab: [60, 120], optimal: [80, 110]}
+- {code: magnesium_rbc, name: RBC magnesium, unit: mg/dL, system: gut_nutrient, lab: [4.2, 6.8], optimal: [5.2, 6.5]}
+- {code: alt, name: ALT, unit: U/L, system: detox, lab: [7, 55], optimal: [10, 30]}
+- {code: ast, name: AST, unit: U/L, system: detox, lab: [10, 40], optimal: [10, 30]}
+- {code: tsh, name: TSH, unit: mIU/L, system: hormonal, lab: [0.4, 4.0], optimal: [1.0, 2.5]}

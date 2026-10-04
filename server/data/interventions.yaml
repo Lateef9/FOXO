@@ -1,0 +1,25 @@
+# No doses. Fill source and evidence_strength yourself (see SOURCING.md).
+
+- {id: f_sleep, title: Fixed sleep and wake time, category: foundation, clusters: [all], order: 1, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: f_steps, title: Daily walking target, category: movement, clusters: [all], order: 2, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+
+- {id: m_foods, title: B12- and folate-rich foods in daily meals, category: nutrition, clusters: [methylation], order: 1, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: m_review_meds, title: Doctor to review medications that can affect B12 status, category: review, clusters: [methylation], order: 2, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: m_b12_supp, title: Doctor to decide on B12 supplementation and form, category: supplement, clusters: [methylation], order: 3, tags: [], requires_doctor_dose: true, evidence_strength: TODO, source: TODO}
+
+- {id: i_postmeal_walk, title: Short walk after the largest meal, category: movement, clusters: [insulin_resistance], order: 1, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: i_strength, title: Resistance training, 2-3 sessions per week, category: movement, clusters: [insulin_resistance], order: 2, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: i_protein_fibre, title: Protein and fibre first at main meals, category: nutrition, clusters: [insulin_resistance], order: 3, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+
+- {id: inf_drivers, title: "Review likely drivers: sleep, dental health, recent illness, training load, body composition", category: review, clusters: [inflammation], order: 1, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: inf_repeat_crp, title: Repeat hs-CRP to confirm it persists, category: testing, weeks: [3, 4], clusters: [inflammation], order: 2, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: inf_iron_check, title: Check transferrin saturation before reading ferritin as iron status, category: testing, weeks: [2, 3], clusters: [inflammation], order: 3, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: inf_omega3_foods, title: Omega-3-rich foods, category: nutrition, clusters: [inflammation], order: 4, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+
+- {id: g_food_diary, title: Two-week food and symptom diary, category: foundation, clusters: [gut_absorption], order: 1, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: g_gut_eval, title: Doctor to consider gut evaluation for absorption, category: review, clusters: [gut_absorption], order: 2, tags: [], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: g_iron_foods, title: Iron-rich foods with a vitamin C source, category: nutrition, clusters: [gut_absorption], order: 3, tags: [iron], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: g_tea_gap, title: Keep tea and coffee away from iron-rich meals, category: nutrition, clusters: [gut_absorption], order: 4, tags: [tea_coffee], requires_doctor_dose: false, evidence_strength: TODO, source: TODO}
+- {id: g_vitd, title: Doctor to decide on vitamin D supplementation, category: supplement, clusters: [gut_absorption], order: 5, tags: [], requires_doctor_dose: true, evidence_strength: TODO, source: TODO}
+- {id: g_zinc, title: Doctor to decide on zinc supplementation, category: supplement, clusters: [gut_absorption], order: 6, tags: [zinc], requires_doctor_dose: true, evidence_strength: TODO, source: TODO}
+- {id: g_iron_supp, title: Doctor to decide on iron supplementation, category: supplement, clusters: [gut_absorption], order: 7, tags: [iron], requires_doctor_dose: true, evidence_strength: TODO, source: TODO}

@@ -1,0 +1,81 @@
+# Fill every evidence_strength and source yourself (see SOURCING.md).
+# Do not ask an LLM for citations — they invent them.
+
+- id: functional_b12
+  title: B12 normal but homocysteine elevated
+  system: cognition
+  cluster: methylation
+  reversibility: 3
+  all:
+    - {marker: b12, status_in: [optimal, below_optimal, above_optimal]}
+    - {marker: homocysteine, status_in: [above_optimal, above_lab]}
+  supporting_markers: []
+  inference: "Serum B12 reads normal, but elevated homocysteine can indicate B12 is not working effectively at tissue level."
+  evidence_strength: TODO
+  source: TODO
+
+- id: early_insulin_resistance
+  title: Normal glucose with elevated fasting insulin
+  system: metabolic
+  cluster: insulin_resistance
+  reversibility: 3
+  all:
+    - {marker: glucose_fasting, status_in: [optimal, below_optimal, above_optimal]}
+    - {marker: insulin_fasting, status_in: [above_optimal, above_lab]}
+  supporting_markers: [triglycerides, uric_acid, hba1c]
+  inference: "Glucose is within range, but higher fasting insulin suggests the body may be compensating to keep glucose normal."
+  evidence_strength: TODO
+  source: TODO
+
+- id: tg_hdl_pattern
+  title: High triglycerides with low HDL
+  system: metabolic
+  cluster: insulin_resistance
+  reversibility: 3
+  all:
+    - {marker: triglycerides, status_in: [above_optimal, above_lab]}
+    - {marker: hdl, status_in: [below_optimal, below_lab]}
+  supporting_markers: [uric_acid, hba1c, insulin_fasting]
+  inference: "This combination often travels with insulin resistance."
+  evidence_strength: TODO
+  source: TODO
+
+- id: ferritin_inflammation
+  title: Ferritin high alongside raised hs-CRP
+  system: immunity
+  cluster: inflammation
+  reversibility: 2
+  all:
+    - {marker: ferritin, status_in: [above_optimal, above_lab]}
+    - {marker: hscrp, status_in: [above_lab]}
+  supporting_markers: [transferrin_sat, wbc]
+  inference: "Ferritin rises with inflammation, so it may overstate iron stores. Transferrin saturation helps interpret it."
+  evidence_strength: TODO
+  source: TODO
+
+- id: chronic_low_grade_inflammation
+  title: Raised hs-CRP without infection
+  system: immunity
+  cluster: inflammation
+  reversibility: 2
+  all:
+    - {marker: hscrp, status_in: [above_lab]}
+    - {marker: wbc, status_in: [optimal, below_optimal, above_optimal]}
+    - {symptom_any: [no_infection]}
+  supporting_markers: [ferritin]
+  inference: "hs-CRP is raised with no sign of infection, which can reflect persistent low-grade inflammation. Likely drivers should be reviewed."
+  evidence_strength: TODO
+  source: TODO
+
+- id: micronutrient_pattern
+  title: Several nutrient markers below optimal despite home-cooked diet
+  system: gut_nutrient
+  cluster: gut_absorption
+  reversibility: 2
+  all:
+    - {count_of: [ferritin, b12, vitamin_d, zinc, magnesium_rbc], status_in: [below_optimal, below_lab], min: 3}
+    - {symptom_any: [bloating]}
+  supporting_markers: [transferrin_sat, hemoglobin]
+  inference: "Multiple nutrient markers sit low together with bloating, which can point to reduced absorption rather than low intake."
+  evidence_strength: TODO
+  source: TODO
