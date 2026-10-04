@@ -1,7 +1,7 @@
 # Phase 9 — UI: overview + findings
 
 **Time:** ~1:00  
-**Status:** ☐ Not started  
+**Status:** ✅ Done  
 **Depends on:** [Phase 8](./09-phase-8-ui-list-anonymise.md)  
 **Next:** [Phase 10 — Playbook UI](./11-phase-10-ui-playbook.md)
 
@@ -18,21 +18,24 @@
 
 ---
 
-## Cursor prompt
+## What was done
 
-```
-Read @PROJECT.md section 4.10. Build the member page at /members/:id with tabs Overview, Findings and Playbook (Playbook can be a placeholder for now). Overview: 9 system cards with a stage chip (Healthy, Compensating, Strained, Not assessed), the reason line, and a legend that also lists Diseased and Comorbid marked "doctor-assessed". Findings: ranked cluster cards showing the doctor_summary; expanding a card shows the reasoning chain: each marker with value, unit and status, the rule title, the inference text, evidence_strength and source. Show a red UNVERIFIED SOURCE badge where source is TODO, and a small "template" tag where wording fell back. Add the label "Suggested placement. Doctor decides." on the overview.
-```
+- [x] `MemberPage` with Overview / Findings / Playbook tabs
+- [x] `OverviewTab` — 9 systems, stage chips, legend, doctor-decides label
+- [x] `FindingsTab` — ranked clusters, expand reasoning, UNVERIFIED + template badges
+- [x] API helpers: `getMember`, `getAnalysis`
 
 ---
 
 ## Verify
 
-- [ ] Meera: Cognition + Metabolic Compensating; Endurance + Musculoskeletal Not assessed
-- [ ] Arjun: Strained on Metabolic, Cardiovascular, Immunity
-- [ ] Findings order matches §8; expanded cards show real marker values
-- [ ] Unverified badges present until sourcing done
-- [ ] Layout OK at laptop width and ~800px
+- [x] Meera engine: Cognition + Metabolic Compensating; Endurance + Musculoskeletal Not assessed
+- [x] Arjun engine: Strained on Metabolic, Cardiovascular, Immunity; top `inflammation`
+- [x] Findings order matches §8 (analyze tests + probe)
+- [x] Unverified badges expected (`source: TODO` still present)
+- [x] Browser UI checked via `npm run dev:local` (memory DB): Members list, Meera/Arjun Overview + Findings match §8; UNVERIFIED + template badges show
+
+**Note:** Supabase still missing tables — run `server/schema.sql` then `npm run seed` for real DB. Local check used `USE_MEMORY_DB=1`.
 
 ---
 

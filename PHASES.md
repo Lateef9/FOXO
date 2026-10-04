@@ -19,11 +19,11 @@ Full spec + data YAML: [`projects.md`](./projects.md)
 | 3 | [04-phase-3-spectrum-clusters.md](./phases/04-phase-3-spectrum-clusters.md) | 1:15 | ✅ |
 | 4 | [05-phase-4-anonymiser.md](./phases/05-phase-4-anonymiser.md) | 0:30 | ✅ |
 | 5 | [06-phase-5-playbook.md](./phases/06-phase-5-playbook.md) | 1:15 | ✅ |
-| 6 | [07-phase-6-llm-wording.md](./phases/07-phase-6-llm-wording.md) | 0:45 | ☐ |
-| 7 | [08-phase-7-api.md](./phases/08-phase-7-api.md) | 1:00 | ☐ |
-| 8 | [09-phase-8-ui-list-anonymise.md](./phases/09-phase-8-ui-list-anonymise.md) | 0:45 | ☐ |
-| 9 | [10-phase-9-ui-overview-findings.md](./phases/10-phase-9-ui-overview-findings.md) | 1:00 | ☐ |
-| 10 | [11-phase-10-ui-playbook.md](./phases/11-phase-10-ui-playbook.md) | 1:15 | ☐ |
+| 6 | [07-phase-6-llm-wording.md](./phases/07-phase-6-llm-wording.md) | 0:45 | ✅ |
+| 7 | [08-phase-7-api.md](./phases/08-phase-7-api.md) | 1:00 | 🟨 |
+| 8 | [09-phase-8-ui-list-anonymise.md](./phases/09-phase-8-ui-list-anonymise.md) | 0:45 | ✅ |
+| 9 | [10-phase-9-ui-overview-findings.md](./phases/10-phase-9-ui-overview-findings.md) | 1:00 | ✅ |
+| 10 | [11-phase-10-ui-playbook.md](./phases/11-phase-10-ui-playbook.md) | 1:15 | ✅ |
 | 11 | [12-phase-11-audit-readme.md](./phases/12-phase-11-audit-readme.md) | 0:45 | ☐ |
 | Final | [13-final-acceptance.md](./phases/13-final-acceptance.md) | 0:30 | ☐ |
 

@@ -1,7 +1,7 @@
 # Phase 10 — UI: playbook, approve, print
 
 **Time:** ~1:15  
-**Status:** ☐ Not started  
+**Status:** ✅ Done  
 **Depends on:** [Phase 9](./10-phase-9-ui-overview-findings.md)  
 **Next:** [Phase 11 — Audit + README](./12-phase-11-audit-readme.md)
 
@@ -28,11 +28,11 @@ Read @PROJECT.md sections 4.7 and 4.10. Build the Playbook tab: a Draft playbook
 
 ## Verify
 
-- [ ] Approve disabled with pending; counter drops as decisions are made
-- [ ] Edit persists across refresh
-- [ ] After approve: controls locked; list status = Approved
-- [ ] Print/PDF clean; sources + “Reviewed by …” line present
-- [ ] Rohan shows iron-related warning where applicable
+- [x] Approve disabled with pending; counter drops as decisions are made
+- [x] Edit persists across refresh
+- [x] After approve: controls locked; list status = Approved
+- [x] Print/PDF clean; sources + “Reviewed by …” line present
+- [x] Rohan shows iron-related warning where applicable
 
 ---
 

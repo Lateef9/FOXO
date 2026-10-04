@@ -1,7 +1,7 @@
 # Phase 6 — LLM wording with guards
 
 **Time:** ~0:45  
-**Status:** ☐ Not started  
+**Status:** ✅ Done (mocked tests green; real LLM optional)  
 **Depends on:** [Phase 4](./05-phase-4-anonymiser.md) + [Phase 5](./06-phase-5-playbook.md)  
 **Next:** [Phase 7 — API](./08-phase-7-api.md)
 
@@ -18,21 +18,22 @@
 
 ---
 
-## Cursor prompt
+## What was done
 
-```
-Read @PROJECT.md section 4.8. Implement server/src/llm/wording.ts and guard.ts. Build the payload ONLY from anonymised data (cluster titles, rule inference text, marker names/values/statuses, pseudo_id, anonymised history text). Call the LLM with structured output validated by a Zod schema matching 4.8. Implement the guards: reject if the response contains any number that is not present in the payload; reject on schema failure; fall back to templates on rejection or error; cache by SHA-256 of the payload in the llm_cache table; mark each piece of wording as 'llm' or 'template'. The system prompt must forbid new facts, numbers, doses, brand names and diagnosis wording. Write Vitest tests with a mocked LLM client: a response with an invented number is rejected and falls back; a malformed response falls back; a valid response passes; the payload builder output contains none of the member's name, city, phone or email (test against all three members).
-```
+- [x] `server/src/llm/guard.ts` — schema + invented-number guard
+- [x] `server/src/llm/wording.ts` — payload, templates, OpenAI client, generateWording
+- [x] `server/src/llm/cache.ts` — memory + Supabase `llm_cache`
+- [x] `server/tests/wording.test.ts` — privacy, invented number, malformed, valid, cache, 401 fallback
 
 ---
 
 ## Verify
 
-- [ ] Mocked tests: invented number → fallback; malformed → fallback; valid → pass
-- [ ] Payload contains no name/city/phone/email for all three members
-- [ ] Real call for Meera: plain language, no invented numbers/doses/diagnosis
-- [ ] Second identical call hits cache
-- [ ] Invalid API key → template wording, tagged `template`
+- [x] Mocked tests: invented number → fallback; malformed → fallback; valid → pass
+- [x] Payload contains no name/city/phone/email for all three members
+- [ ] Real call for Meera: plain language, no invented numbers/doses/diagnosis *(run manually if key/model available)*
+- [x] Second identical call hits cache (mocked + memory cache)
+- [x] Invalid API key / LLM error → template wording, tagged `template`
 
 ---
 

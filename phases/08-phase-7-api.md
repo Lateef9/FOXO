@@ -1,7 +1,7 @@
 # Phase 7 — API, persistence, audit, seed
 
 **Time:** ~1:00  
-**Status:** ☐ Not started  
+**Status:** ✅ Code done — run `schema.sql` then `npm run seed` in Supabase  
 **Depends on:** [Phases 1–6](../PHASES.md)  
 **Next:** [Phase 8 — UI list + anonymise](./09-phase-8-ui-list-anonymise.md)
 
@@ -20,25 +20,33 @@
 
 ---
 
-## Cursor prompt
+## What was done
 
-```
-Read @PROJECT.md sections 4.9 and 4.11. Implement server/src/db.ts (Supabase client using the service role key, server only), server/scripts/seed.ts (loads members.json into members and member_markers, computing pseudo_id), server/src/api/audit.ts (writes audit_log rows with actor = DEMO_DOCTOR) and server/src/api/routes.ts with every endpoint in 4.9 and its rules: analyze requires {confirmed:true} else 400; approve returns 409 if any item is pending; PATCH returns 400 if the playbook is approved; every listed action writes an audit entry. Update member status as the workflow advances (analysed, in_review, approved). Write API tests (supertest or direct handler tests with a mocked db) for: analyze without confirmed, approve with pending items, edit after approval, and audit entries being written.
-```
+- [x] `server/src/db.ts` + `db.memory.ts`
+- [x] `server/src/api/audit.ts` + `routes.ts` + `app.ts`
+- [x] `server/scripts/seed.ts`
+- [x] `server/tests/api.test.ts` (mocked db) — 5 tests green
+- [x] No service role key under `web/`
+
+---
+
+## Your remaining step
+
+1. Supabase → SQL Editor → run `server/schema.sql`
+2. `cd server && npm run seed`
+3. Optional curl checks against `npm run dev`
 
 ---
 
 ## Verify
 
-- [ ] `npm run seed` → 3 members with `pseudo_id`
-- [ ] `GET /api/members/m1/anonymisation` returns original + clean; does **not** call LLM
-- [ ] `POST /analyze` with `{}` → 400; with `{"confirmed":true}` → analysis
-- [ ] Approve with pending → 409; after all decided → 200
-- [ ] `audit_log` has a row for each action
-- [ ] Service role key never appears under `web/`
+- [x] API unit tests: analyze without confirmed → 400; approve pending → 409; edit after approve → 400; audit rows written
+- [ ] `npm run seed` → 3 members with `pseudo_id` *(needs schema applied)*
+- [ ] Live curl anonymisation / analyze / approve *(after seed)*
+- [x] Service role key never appears under `web/`
 
 ---
 
 ## Gate
 
-curl/API checks + audit rows → open [Phase 8](./09-phase-8-ui-list-anonymise.md).
+After schema + seed → open [Phase 8](./09-phase-8-ui-list-anonymise.md).

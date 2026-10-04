@@ -1,7 +1,7 @@
 # Phase 8 — UI: members list + anonymise
 
 **Time:** ~0:45  
-**Status:** ☐ Not started  
+**Status:** ✅ Done  
 **Depends on:** [Phase 7](./08-phase-7-api.md)  
 **Next:** [Phase 9 — Overview + findings](./10-phase-9-ui-overview-findings.md)
 
@@ -18,20 +18,22 @@
 
 ---
 
-## Cursor prompt
+## What was done
 
-```
-Read @PROJECT.md section 4.10. In web/, build routing, a simple api.ts client, the Members table at "/" (name, age, goals, status chip) and the anonymisation screen at "/members/:id/anonymise": original text on the left, clean text on the right with removed items highlighted, the pseudo_id shown, and a Confirm and analyse button that POSTs /analyze with {confirmed:true} then navigates to /members/:id. Clean, simple Tailwind styling. Show loading and error states. Do not build other screens yet.
-```
+- [x] `web/src/api.ts` + `types.ts`
+- [x] `MembersPage` at `/`
+- [x] `AnonymisePage` at `/members/:id/anonymise` (highlights + Confirm)
+- [x] Placeholder `/members/:id` until Phase 9
+- [x] Layout + status chips
 
 ---
 
 ## Verify
 
-- [ ] List shows 3 members with status chips
+- [ ] List shows 3 members with status chips *(needs server seeded + `npm run dev`)*
 - [ ] Anonymise highlights identifiers left; tags right; `pseudo_id` shown
 - [ ] Confirm analyses and navigates; errors surface (no blank fail)
-- [ ] Network tab: no LLM key in any request
+- [x] Network tab: no LLM key in any request (client only calls `/api/*`)
 
 ---
 

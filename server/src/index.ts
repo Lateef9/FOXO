@@ -1,36 +1,60 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import cors from "cors";
 import dotenv from "dotenv";
-import express from "express";
-import { loadData, metaFromData } from "./loader.js";
-import type { AppData } from "./types.js";
+import { loadData } from "./loader.js";
+import { createSupabaseDb } from "./db.js";
+import { createMemoryDb } from "./db.memory.js";
+import { createApp } from "./app.js";
+import { seedMembers } from "./seedLocal.js";
+import {
+  buildWordingPayload,
+  templateWording,
+  type GenerateWordingOpts,
+} from "./llm/wording.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, "../../.env") });
 
-let data: AppData;
+process.env.PSEUDO_SALT = process.env.PSEUDO_SALT || "dev-salt";
+
+let data;
 try {
   data = loadData();
 } catch (err) {
-  console.error("Failed to load server/data:", err instanceof Error ? err.message : err);
+  console.error(
+    "Failed to load server/data:",
+    err instanceof Error ? err.message : err,
+  );
   process.exit(1);
 }
 
-const app = express();
+const useMemory = process.env.USE_MEMORY_DB === "1";
+
+async function templateOnly(opts: GenerateWordingOpts) {
+  const payload = buildWordingPayload(
+    opts.member,
+    opts.clusters,
+    opts.findings,
+    opts.classified,
+    opts.items,
+  );
+  return templateWording(payload, opts.findings);
+}
+
+const db = useMemory ? createMemoryDb() : createSupabaseDb();
+if (useMemory) {
+  await seedMembers(db, data);
+  console.log("USE_MEMORY_DB=1 — seeded 3 synthetic members in memory");
+}
+
+const app = createApp({
+  data,
+  db,
+  // Avoid live LLM during local UI checks; templates are enough for Phase 9.
+  wording: useMemory ? templateOnly : undefined,
+});
+
 const port = Number(process.env.PORT) || 3001;
-
-app.use(cors());
-app.use(express.json());
-
-app.get("/api/health", (_req, res) => {
-  res.json({ ok: true });
-});
-
-app.get("/api/meta", (_req, res) => {
-  res.json(metaFromData(data));
-});
-
 app.listen(port, () => {
   console.log(`server listening on http://localhost:${port}`);
 });

@@ -1,6 +1,7 @@
 -- Primer Copilot schema (run in Supabase SQL editor)
+-- Safe to re-run.
 
-create table members (
+create table if not exists members (
   id text primary key,
   pseudo_id text not null,
   name text not null, age int, sex text, city text, phone text, email text,
@@ -8,19 +9,19 @@ create table members (
   status text not null default 'report_received'
 );
 
-create table member_markers (
+create table if not exists member_markers (
   member_id text references members(id) on delete cascade,
   code text not null, value numeric not null, unit text,
   primary key (member_id, code)
 );
 
-create table analyses (
+create table if not exists analyses (
   id uuid primary key default gen_random_uuid(),
   member_id text references members(id) on delete cascade,
   result jsonb not null, created_at timestamptz default now()
 );
 
-create table playbooks (
+create table if not exists playbooks (
   id uuid primary key default gen_random_uuid(),
   member_id text references members(id) on delete cascade,
   analysis_id uuid references analyses(id),
@@ -29,7 +30,7 @@ create table playbooks (
   unscheduled jsonb default '[]', created_at timestamptz default now()
 );
 
-create table playbook_items (
+create table if not exists playbook_items (
   id uuid primary key default gen_random_uuid(),
   playbook_id uuid references playbooks(id) on delete cascade,
   item_key text, week_from int, week_to int, category text, title text,
@@ -39,9 +40,9 @@ create table playbook_items (
   state text not null default 'pending', edited_text text
 );
 
-create table audit_log (
+create table if not exists audit_log (
   id bigserial primary key, actor text not null,
   member_id text, action text not null, at timestamptz default now()
 );
 
-create table llm_cache (hash text primary key, response jsonb not null);
+create table if not exists llm_cache (hash text primary key, response jsonb not null);
